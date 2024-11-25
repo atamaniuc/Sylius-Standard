@@ -52,6 +52,8 @@ services:
         image: node:${NODE_VERSION:-20}-alpine
         user: ${DOCKER_USER:-1000:1000}
         working_dir: /srv/sylius
+        environment:
+            - NPM_CONFIG_CACHE=/srv/sylius/.npm  # Set custom Path for NPM Cache to prevent EACCES for "/.npm" Path
         entrypoint: [ "/bin/sh","-c" ]
         command:
             - |
