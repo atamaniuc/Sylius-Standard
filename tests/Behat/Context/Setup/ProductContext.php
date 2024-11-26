@@ -48,7 +48,6 @@ final class ProductContext implements Context
         $variant->setCode(strtoupper(str_replace(' ', '_', $productName)) . '_VARIANT');
         $variant->setOnHand(10);
 
-        // Создаем ChannelPricing для варианта
         /** @var ChannelPricingInterface $channelPricing */
         $channelPricing = $this->channelPricingFactory->createNew();
         $channelPricing->setChannelCode('FASHION_WEB');

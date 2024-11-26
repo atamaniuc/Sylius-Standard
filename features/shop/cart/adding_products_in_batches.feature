@@ -1,4 +1,3 @@
-# features/shop/cart/adding_products_in_batches.feature
 @adding_to_cart @ui
 Feature: Adding products to cart in batches of 10
     In order to follow company's batch policy

@@ -12,7 +12,6 @@ use Symfony\Component\Validator\Constraints\Callback;
 use Prophecy\Argument;
 use Symfony\Component\Validator\Context\ExecutionContextInterface;
 use Symfony\Component\Validator\Violation\ConstraintViolationBuilderInterface;
-use Symfony\Component\Validator\ConstraintValidatorInterface;
 
 class AddToCartTypeExtensionSpec extends ObjectBehavior
 {
