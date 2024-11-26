@@ -1,5 +1,6 @@
 imports:
-    - vendor/sylius/sylius/src/Sylius/Behat/Resources/config/suites.yml
+#    - vendor/sylius/sylius/src/Sylius/Behat/Resources/config/suites.yml
+    - features/suites/shop/cart.yml
 
 default:
     formatters:
@@ -53,7 +54,7 @@ default:
 
         FriendsOfBehat\SuiteSettingsExtension:
             paths:
-                - "vendor/sylius/sylius/features"
+#                - "vendor/sylius/sylius/features"
                 - "features"
 
         SyliusLabs\SuiteTagsExtension: ~

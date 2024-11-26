@@ -14,6 +14,8 @@ const shopConfig = SyliusShop.getWebpackConfig(path.resolve(__dirname));
 Encore
     .setOutputPath('public/build/app/shop')
     .setPublicPath('/build/app/shop')
+    // Add shop-quantity-validation
+    .addEntry('shop-quantity-validation', './assets/shop/js/quantity-validation.js')
     .addEntry('app-shop-entry', './assets/shop/entry.js')
     .disableSingleRuntimeChunk()
     .cleanupOutputBeforeBuild()

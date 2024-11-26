@@ -127,6 +127,9 @@ COPY --from=sylius_node /srv/sylius/public public/
 
 FROM sylius_php_prod AS sylius_php_dev
 
+# Add chromium Behat Mink
+RUN apk add --no-cache chromium chromium-chromedriver
+
 COPY docker/php/dev/php.ini        $PHP_INI_DIR/php.ini
 COPY docker/php/dev/opcache.ini    $PHP_INI_DIR/conf.d/opcache.ini
 

@@ -1,5 +1,30 @@
+# config/services_test.yaml
 imports:
     - { resource: "../vendor/sylius/sylius/src/Sylius/Behat/Resources/config/services.xml" }
+    - { resource: services_test/*.yaml }
 
 sylius_api:
     enabled: true
+
+services:
+    app.behat.page.shop.product.show:
+        class: App\Tests\Behat\Page\Shop\Product\ShowPage
+        parent: sylius.behat.page.shop.product.show
+        public: true
+    
+    app.behat.context.setup.product:
+        class: App\Tests\Behat\Context\Setup\ProductContext
+        arguments:
+            $productFactory: '@sylius.factory.product'
+            $productVariantFactory: '@sylius.factory.product_variant'
+            $productRepository: '@sylius.repository.product'
+            $productTranslationFactory: '@sylius.factory.product_translation'
+            $channelPricingFactory: '@sylius.factory.channel_pricing'
+            $entityManager: '@doctrine.orm.entity_manager'
+        public: true
+
+    app.behat.context.shop.cart:
+        class: App\Tests\Behat\Context\Shop\CartContext
+        arguments:
+            $productShowPage: '@app.behat.page.shop.product.show'
+        public: true

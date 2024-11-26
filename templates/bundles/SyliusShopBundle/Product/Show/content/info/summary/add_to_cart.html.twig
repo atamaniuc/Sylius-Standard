@@ -1,0 +1,38 @@
+{# templates/bundles/SyliusShopBundle/Product/Show/content/info/summary/add_to_cart.html.twig #}
+
+{% form_theme form '@SyliusShop/form/theme.html.twig' %}
+
+<div class="position-relative" {{ attributes }}>
+    {% if product.enabledVariants.empty() or product.simple and not sylius_inventory_is_available(product.enabledVariants.first) %}
+        <div {{ sylius_test_html_attribute('product-out-of-stock') }}>{{ 'sylius.ui.out_of_stock'|trans }}</div>
+    {% else %}
+        <div data-loading>
+            <div class="sylius-shop-loader">
+                <img src="{{ asset('build/shop/images/loader.gif', 'shop') }}" alt="{{ 'sylius.ui.loading'|trans }}"/>
+            </div>
+        </div>
+        <div class="my-4" {{ sylius_test_html_attribute('product-selecting-variant') }}>
+            {{ form_start(form, {'attr': {'data-action': 'live#action:prevent', 'data-live-action-param': 'addToCart'}}) }}
+            {{ form_errors(form) }}
+
+            {% hook 'add_to_cart' with { product, form } %}
+
+            {# Add custom quantity field #}
+            {% if form.quantity is defined %}
+                {{ form_row(form.quantity, {
+                    'attr': {
+                        'min': 10,
+                        'step': 10,
+                        'data-quantity-input': true
+                    }
+                }) }}
+            {% endif %}
+
+            {{ form_row(form._token) }}
+            {{ form_end(form, {'render_rest': false}) }}
+        </div>
+
+        {# Add quantity-validation.js #}
+        {{ encore_entry_script_tags('shop-quantity-validation', null, 'app.shop') }}
+    {% endif %}
+</div>
