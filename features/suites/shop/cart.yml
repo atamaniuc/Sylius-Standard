@@ -1,0 +1,21 @@
+default:
+    suites:
+        ui_cart:
+            contexts:
+                # Main Contexts Sylius
+                - sylius.behat.context.hook.doctrine_orm
+                - sylius.behat.context.transform.shared_storage
+                - sylius.behat.context.transform.lexical
+                - sylius.behat.context.transform.product
+                
+                # Context for adjusting
+                - sylius.behat.context.setup.channel
+                - app.behat.context.setup.product
+                - sylius.behat.context.setup.admin_security
+                - sylius.behat.context.setup.shop_security
+                
+                # UI Contexts
+                - sylius.behat.context.ui.shop.cart
+                - app.behat.context.shop.cart
+            filters:
+                tags: "@adding_to_cart&&@ui"

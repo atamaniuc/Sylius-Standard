@@ -44,8 +44,10 @@
         "friends-of-behat/suite-settings-extension": "^1.1",
         "friends-of-behat/symfony-extension": "^2.6",
         "friends-of-behat/variadic-extension": "^1.6",
+        "friends-of-phpspec/phpspec-code-coverage": "^6.4",
         "lchrusciel/api-test-case": "^5.3",
         "nyholm/psr7": "^1.8",
+        "phpspec/phpspec": "^7.5",
         "phpstan/extension-installer": "^1.4",
         "phpstan/phpstan": "^1.12",
         "phpstan/phpstan-doctrine": "^1.5",
@@ -59,6 +61,7 @@
         "symfony/debug-bundle": "^6.4 || ^7.1",
         "symfony/http-client": "^6.4 || ^7.1",
         "symfony/intl": "^6.4 || ^7.1",
+        "symfony/panther": "^2.1",
         "symfony/web-profiler-bundle": "^6.4 || ^7.1"
     },
     "config": {
